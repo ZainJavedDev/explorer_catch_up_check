@@ -1,0 +1,1 @@
+cd /home/catch_up_check/ && ./catch_up_check
