@@ -46,5 +46,7 @@ func main() {
 	available := fs.Bavail * uint64(fs.Bsize)
 	availableGB := float64(available) / float64(1<<30)
 
-	fmt.Printf("Available storage: %.2f GB\n", availableGB)
+	storageMessage := fmt.Sprintf("Available storage: %.2f GB\n", availableGB)
+	fmt.Println(storageMessage)
+	discord_logger.SendDiscordMessage(storageMessage)
 }
