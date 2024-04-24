@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"log"
+	"syscall"
 	"time"
 
 	"github.com/ZainJavedDev/catch-up-check/database"
@@ -34,4 +35,16 @@ func main() {
 
 	fmt.Print(message)
 	discord_logger.SendDiscordMessage(message)
+
+	fs := syscall.Statfs_t{}
+	err = syscall.Statfs("/mnt/volume_sgp1_01", &fs)
+	if err != nil {
+		fmt.Println(err)
+		return
+	}
+
+	available := fs.Bavail * uint64(fs.Bsize)
+	availableGB := float64(available) / float64(1<<30)
+
+	fmt.Printf("Available storage: %.2f GB\n", availableGB)
 }
