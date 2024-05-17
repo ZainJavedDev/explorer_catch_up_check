@@ -27,7 +27,7 @@ func SendDiscordMessage(message string) {
 	webhookURL := fmt.Sprintf("https://discord.com/api/webhooks/%s/%s", token, webhookId)
 
 	msg := DiscordMessage{
-		Content: message,
+		Content: "pgsql: " + message,
 	}
 	msgBytes, err := json.Marshal(msg)
 	if err != nil {

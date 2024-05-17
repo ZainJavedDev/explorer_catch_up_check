@@ -9,7 +9,7 @@ import (
 
 func CheckStorage() error {
 	fs := syscall.Statfs_t{}
-	err := syscall.Statfs("/mnt/volume_sgp1_01", &fs)
+	err := syscall.Statfs("/mnt/volume_sgp1_02", &fs)
 	if err != nil {
 		fmt.Println(err)
 		return err
